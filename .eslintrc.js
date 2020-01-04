@@ -1,91 +1,72 @@
 module.exports = {
-  // 为我们提供运行环境，一个环境定义了一组预定义的全局变量
+  parser: 'babel-eslint',
+  extends: ['airbnb', 'prettier'],
   env: {
     browser: true,
-    es6: true
+    node: true,
+    es6: true,
+    mocha: true,
+    jest: true,
+    jasmine: true,
   },
-  // 一个配置文件可以被基础配置中的已启用的规则继承。
-  extends: ["react-app", "prettier/react"],
-  // 自定义全局变量
-  globals: {
-    Atomics: "readonly",
-    SharedArrayBuffer: "readonly",
-    _: true,
-    $: true
+  rules: {
+    'generator-star-spacing': [0],
+    'consistent-return': [0],
+    'react/forbid-prop-types': [0],
+    'react/jsx-filename-extension': [1, { extensions: ['.js'] }],
+    'global-require': [1],
+    'import/prefer-default-export': [0],
+    'react/jsx-no-bind': [0],
+    'react/prop-types': [0],
+    'react/prefer-stateless-function': [0],
+    'react/jsx-one-expression-per-line': [0],
+    'react/jsx-wrap-multilines': [
+      'error',
+      {
+        declaration: 'parens-new-line',
+        assignment: 'parens-new-line',
+        return: 'parens-new-line',
+        arrow: 'parens-new-line',
+        condition: 'parens-new-line',
+        logical: 'parens-new-line',
+        prop: 'ignore',
+      },
+    ],
+    'no-else-return': [0],
+    'no-restricted-syntax': [0],
+    'import/no-extraneous-dependencies': [0],
+    'no-use-before-define': [0],
+    'jsx-a11y/no-static-element-interactions': [0],
+    'jsx-a11y/no-noninteractive-element-interactions': [0],
+    'jsx-a11y/click-events-have-key-events': [0],
+    'jsx-a11y/anchor-is-valid': [0],
+    'no-nested-ternary': [0],
+    'arrow-body-style': [0],
+    'import/extensions': [0],
+    'no-bitwise': [0],
+    'no-cond-assign': [0],
+    'import/no-unresolved': [0],
+    'comma-dangle': [
+      'error',
+      {
+        arrays: 'always-multiline',
+        objects: 'always-multiline',
+        imports: 'always-multiline',
+        exports: 'always-multiline',
+        functions: 'ignore',
+      },
+    ],
+    'object-curly-newline': [0],
+    'function-paren-newline': [0],
+    'no-restricted-globals': [0],
+    'require-yield': [1],
   },
-  // ESLint 默认使用Espree作为其解析器，你可以在配置文件中指定一个不同的解析器
-  // "parser": "@typescript-eslint/parser",
-  // 配置解析器支持的语法
   parserOptions: {
     ecmaFeatures: {
-      jsx: true
+      experimentalObjectRestSpread: true,
     },
-    ecmaVersion: 2018,
-    sourceType: "module"
   },
-  // ESLint 支持使用第三方插件。在使用插件之前，你必须使用 npm 安装它。
-  // 在配置文件里配置插件时，可以使用 plugins 关键字来存放插件名字的列表。插件名称可以省略 eslint-plugin- 前缀。
-  plugins: ["prettier"],
-  // ESLint 附带有大量的规则。你可以使用注释或配置文件修改你项目中要使用的规则。要改变一个规则设置，你必须将规则 ID 设置为下列值之一：
-  // "off" 或 0 - 关闭规则
-  // "warn" 或 1 - 开启规则，使用警告级别的错误：warn (不会导致程序退出)
-  // "error" 或 2 - 开启规则，使用错误级别的错误：error (当被触发的时候，程序会退出)
-  rules: {
-    "no-debugger": 0,
-    "no-unused-vars": [
-      1,
-      {
-        argsIgnorePattern: "res|next|^err"
-      }
-    ],
-    "arrow-body-style": [2, "as-needed"],
-    "no-param-reassign": [
-      2,
-      {
-        props: false
-      }
-    ],
-    "no-console": 0,
-    "import/prefer-default-export": 0,
-    import: 0,
-    "func-names": 0,
-    "space-before-function-paren": 0,
-    "comma-dangle": 0,
-    "max-len": 0,
-    "import/extensions": 0,
-    "no-underscore-dangle": 0,
-    "consistent-return": 0,
-    "react/display-name": 1,
-    "react/react-in-jsx-scope": 0,
-    "react/prefer-stateless-function": 0,
-    "react/forbid-prop-types": 0,
-    "react/no-unescaped-entities": 0,
-    "jsx-a11y/accessible-emoji": 0,
-    "jsx-a11y/label-has-for": 0,
-    "react/jsx-filename-extension": [
-      1,
-      {
-        extensions: [".js", ".jsx"]
-      }
-    ],
-    radix: 0,
-    semi: [2, "always"],
-    "prettier/prettier": [
-      "error",
-      {
-        printWidth: 120, //一行的字符数，如果超过会进行换行，默认为80
-        tabWidth: 2, //一个tab代表几个空格数，默认为2
-        semi: true,
-        singleQuote: true
-      }
-    ],
-    "jsx-a11y/href-no-hash": "off",
-    "jsx-a11y/alt-text": "off",
-    "jsx-a11y/anchor-is-valid": [
-      "warn",
-      {
-        aspects: ["invalidHref"]
-      }
-    ]
-  }
+  settings: {
+    polyfills: ['fetch', 'promises'],
+  },
 };

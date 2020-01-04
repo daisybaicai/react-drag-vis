@@ -1,0 +1,7 @@
+**/*.md
+**/*.svg
+**/*.html
+**/*.ejs
+package.json
+/config
+.eslintrc.js
