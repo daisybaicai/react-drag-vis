@@ -5,7 +5,7 @@ module.exports = {
     es6: true
   },
   // 一个配置文件可以被基础配置中的已启用的规则继承。
-  extends: ["airbnb", "prettier", "prettier/react"],
+  extends: ["react-app", "airbnb", "prettier", "prettier/react"],
   // 自定义全局变量
   globals: {
     Atomics: "readonly",
@@ -82,7 +82,8 @@ module.exports = {
       {
         printWidth: 120, //一行的字符数，如果超过会进行换行，默认为80
         tabWidth: 2, //一个tab代表几个空格数，默认为2
-        semi: true
+        semi: true,
+        singleQuote: true
       }
     ],
     "jsx-a11y/href-no-hash": "off",
