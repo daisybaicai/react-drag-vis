@@ -5,7 +5,7 @@ module.exports = {
     es6: true
   },
   // 一个配置文件可以被基础配置中的已启用的规则继承。
-  extends: ["react-app", "airbnb", "prettier", "prettier/react"],
+  extends: ["react-app", "prettier/react"],
   // 自定义全局变量
   globals: {
     Atomics: "readonly",
@@ -70,13 +70,6 @@ module.exports = {
     ],
     radix: 0,
     semi: [2, "always"],
-    "no-shadow": [
-      2,
-      {
-        hoist: "all",
-        allow: ["resolve", "reject", "done", "next", "err", "error"]
-      }
-    ],
     "prettier/prettier": [
       "error",
       {
